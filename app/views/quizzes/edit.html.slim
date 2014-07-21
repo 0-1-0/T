@@ -1,8 +1,11 @@
-h1 Editing quiz
+.header
+  .row
+    .col-lg-6
+      h1 Editing quiz
+      hr
 
 == render 'form'
 
-= link_to 'Show', @quiz
-'|
-= link_to 'Back', quizzes_path
-
+.footer
+  .row
+    .col-lg-6= link_to 'Back', quizzes_path, class: 'btn btn-primary btn-block btn-lg'

@@ -1,23 +1,33 @@
-h1 Listing quizzes
+.row
+  .col-lg-6
+    h1 Listing quizzes
+    br
 
-table
-  thead
-    tr
-      th Title
-      th Text
-      th
-      th
-      th
+    table.table
+      thead
+        tr
+          th id
+          th Title
+          th Text
+          th Questions
+          th
+          th
 
-  tbody
-    - @quizzes.each do |quiz|
-      tr
-        td = quiz.title
-        td = quiz.text
-        td = link_to 'Show', quiz
-        td = link_to 'Edit', edit_quiz_path(quiz)
-        td = link_to 'Destroy', quiz, data: {:confirm => 'Are you sure?'}, :method => :delete
+      tbody
+        - @quizzes.each do |quiz|
+          tr
+            td = quiz.id
+            td = quiz.title
+            td = quiz.text
+            td
+              - quiz.qs.each do |q|
+                ul
+                  li=q.title
+            td
+              = link_to 'Edit', edit_quiz_path(quiz)
+            td
+              = link_to 'Destroy', quiz, data: {:confirm => 'Are you sure?'}, :method => :delete
+      br
 
-br
-
-= link_to 'New Quiz', new_quiz_path
+    .row
+      = link_to 'New Quiz', new_quiz_path, class: 'btn btn-lg btn-block btn-primary'
