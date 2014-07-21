@@ -1,5 +1,5 @@
 class Quiz < ActiveRecord::Base
-  has_many :qs, order: "'order' ASC"
+  has_many :qs, order: :order
   has_many :as
   accepts_nested_attributes_for :qs, :allow_destroy => true
   accepts_nested_attributes_for :as, :allow_destroy => true
