@@ -12,6 +12,7 @@
           th Questions
           th
           th
+          th
 
       tbody
         - @quizzes.each do |quiz|
@@ -23,6 +24,8 @@
               - quiz.qs.each do |q|
                 ul
                   li=q.title
+            td
+              = link_to 'Show', quiz
             td
               = link_to 'Edit', edit_quiz_path(quiz)
             td
