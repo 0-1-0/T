@@ -1,0 +1,39 @@
+= nested_form_for @quiz do |f|
+  .field
+    = f.label :title
+    = f.text_field :title
+  .field
+    = f.label :text
+    = f.text_field :text
+
+  hr
+  h3 Questions
+  = f.fields_for :qs do |q|
+    .field
+      = q.label :order
+      = q.number_field :order
+    .field
+      = q.label :title
+      = q.text_field :title
+    = q.link_to_remove "Remove this question"
+    
+    h5 Options
+    = q.fields_for :options do |option|
+      .field
+        = option.label :text
+        = option.text_field :text
+      .field
+        = option.label :code
+        = option.number_field :code
+      = option.link_to_remove "Remove this option"
+      hr
+      
+    = q.link_to_add "Add option", :options
+    hr
+
+
+  = f.link_to_add "Add question", :qs
+  br
+  hr
+
+  .actions = f.submit 'Save'

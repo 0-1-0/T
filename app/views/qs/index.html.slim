@@ -1,0 +1,25 @@
+h1 Listing qs
+
+table
+  thead
+    tr
+      th Order
+      th Quiz
+      th Title
+      th
+      th
+      th
+
+  tbody
+    - @qs.each do |q|
+      tr
+        td = q.order
+        td = q.quiz
+        td = q.title
+        td = link_to 'Show', q
+        td = link_to 'Edit', edit_q_path(q)
+        td = link_to 'Destroy', q, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New Q', new_q_path

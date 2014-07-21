@@ -1,0 +1,15 @@
+p#notice = notice
+
+p
+  strong Q:
+  = @option.q
+p
+  strong Text:
+  = @option.text
+p
+  strong Code:
+  = @option.code
+
+= link_to 'Edit', edit_option_path(@option)
+'|
+= link_to 'Back', options_path

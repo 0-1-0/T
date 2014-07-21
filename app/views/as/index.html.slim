@@ -1,0 +1,27 @@
+h1 Listing as
+
+table
+  thead
+    tr
+      th Quiz
+      th Code
+      th Title
+      th Text
+      th
+      th
+      th
+
+  tbody
+    - @as.each do |a|
+      tr
+        td = a.quiz
+        td = a.code
+        td = a.title
+        td = a.text
+        td = link_to 'Show', a
+        td = link_to 'Edit', edit_a_path(a)
+        td = link_to 'Destroy', a, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New A', new_a_path

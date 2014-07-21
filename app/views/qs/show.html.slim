@@ -1,0 +1,15 @@
+p#notice = notice
+
+p
+  strong Order:
+  = @q.order
+p
+  strong Quiz:
+  = @q.quiz
+p
+  strong Title:
+  = @q.title
+
+= link_to 'Edit', edit_q_path(@q)
+'|
+= link_to 'Back', qs_path

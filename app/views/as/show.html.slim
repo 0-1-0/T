@@ -1,0 +1,18 @@
+p#notice = notice
+
+p
+  strong Quiz:
+  = @a.quiz
+p
+  strong Code:
+  = @a.code
+p
+  strong Title:
+  = @a.title
+p
+  strong Text:
+  = @a.text
+
+= link_to 'Edit', edit_a_path(@a)
+'|
+= link_to 'Back', as_path
