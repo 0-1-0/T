@@ -3,8 +3,13 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.4'
 
-# Use sqlite3 as the database for Active Record
-gem 'mysql'
+group :production do
+  gem 'pg'
+end
+
+group :development do
+  gem 'mysql'
+end
 
 gem "nested_form", :git => 'git://github.com/ryanb/nested_form.git'
 
