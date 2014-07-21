@@ -2,4 +2,5 @@ class Quiz < ActiveRecord::Base
   has_many :qs
   has_many :as
   accepts_nested_attributes_for :qs, :allow_destroy => true
+  accepts_nested_attributes_for :as, :allow_destroy => true
 end
