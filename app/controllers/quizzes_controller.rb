@@ -1,5 +1,5 @@
 class QuizzesController < ApplicationController
-  before_action :set_quiz, only: [:show, :edit, :update, :destroy]
+  before_action :set_quiz, only: [:show, :edit, :update, :destroy, :solve]
 
   # GET /quizzes
   # GET /quizzes.json
@@ -59,6 +59,11 @@ class QuizzesController < ApplicationController
       format.html { redirect_to quizzes_url }
       format.json { head :no_content }
     end
+  end
+
+
+  def solve
+    render json: @quiz.find_answer(params[:results].collect{ |i| i.to_i })
   end
 
   private

@@ -1,0 +1,1 @@
+Rails::Patch::Json::Encode.patch_renderers

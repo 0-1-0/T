@@ -1,12 +1,46 @@
-p#notice = notice
+.row
+  #quiz.col-lg-6
+    .row
+      h1= @quiz.title
+    .row
+      p = @quiz.text
 
-p
-  strong Title:
-  = @quiz.title
-p
-  strong Text:
-  = @quiz.text
+    - @quiz.qs.each do |question|
+      .row
+        h3=question.title
+      .row
+        - question.options.each do |option|
+          .row
+            input.radio-group type="radio" name="#{question.id}" value="#{option.code}" 
+              = option.text
+      hr
 
-= link_to 'Edit', edit_quiz_path(@quiz)
-'|
-= link_to 'Back', quizzes_path
+    .row
+      #show-res.btn.btn-lg.btn-block.btn-info Show result
+
+  #result.col-lg-6.tile
+    .row
+      h1 Your result
+    .row
+      h2#result-title
+    .row
+      p#result-text
+
+javascript:
+  window.post_url = "/solve/#{@quiz.id}"
+
+coffee:
+  $(document).ready () ->
+    $('#result').hide()
+
+    $('#show-res').click () ->
+      window.results = []
+      $(':radio:checked').each () ->
+          window.results.push $(this).val()
+
+      $.post(window.post_url, results: window.results).done (data) ->
+        $('#result-title').html data.title
+        $('#result-text').html  data.text
+        $('#quiz').hide()
+        $('#result').show()
+

@@ -3,6 +3,7 @@ development:
   database: t
   user: root
   password:
+  encoding: utf8
   pool: 5
   timeout: 5000
 
@@ -14,11 +15,13 @@ test:
   database: t
   user: root
   password:
+  encoding: utf8
   pool: 5
   timeout: 5000
 
 production:
   adapter: pg
-  database: db/production.sqlite3
+  database: hb
+  encoding: utf8
   pool: 5
   timeout: 5000
