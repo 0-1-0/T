@@ -1,35 +1,38 @@
-#quiz.container
+#quiz-conteiner.container
   .demo-headline
-    .demo-logo
-      =image_tag 'icons/svg/pencils.svg'
-      = @quiz.title
-      small= @quiz.text
-
-
-  - @quiz.qs.each do |question|
     .row
-      .demo-panel-title=question.title
-      - question.options.each do |option|
-        label.radio
-          input type="radio" name="#{question.id}" value="#{option.code}" data-toggle="radio"
-            = option.text
-      hr
+      .col-xs-5.col-centered
+        = @quiz.title
+        =image_tag 'icons/svg/pencils.svg'
+        h5= @quiz.text
 
-  .row
-    a#show-res.btn.btn-lg.btn-info href='javascript:void();'
-      | Show result
+
+  #questions-container.col-centered.col-xs-5
+    - @quiz.qs.each do |question|
+      .row.question style='display: none;'
+        .demo-panel-title=question.title
+        - question.options.each do |option|
+          label.radio
+            input type="radio" name="#{question.id}" value="#{option.code}" data-toggle="radio"
+              = option.text
+        .btn.next-btn.btn-block.btn-default Next
+
+    .row.question style='display: none;'
+      a#show-res.btn.btn-block.btn-info href='javascript:void();'
+        | Show result
 
 
 #result
-  .demo-headline
+  .demo-headline style='margin-top: -100px'
     .row
       h1 Your result
     .row
       h2#result-title
     .row
       h3#result-text
-  .row
-    =link_to 'Discover more quizzes!', '/', class: 'btn btn-block btn-lg btn-info'
+    .row
+      .col-xs-5.col-centered
+        =link_to 'Discover more quizzes!', '/', class: 'btn btn-block btn-lg btn-default'
 
 javascript:
   window.post_url = "/solve/#{@quiz.id}";
@@ -38,6 +41,10 @@ javascript:
 coffee:
   $(document).ready () ->
     $('#result').hide()
+    $('.question').first().show()
+
+    $('.next-btn').click () ->
+      $("#questions-container").find(":visible").hide().next().show()
 
     $('#show-res').click () ->
       window.results = []
@@ -47,6 +54,6 @@ coffee:
       $.post(window.post_url, results: window.results).done (data) ->
         $('#result-title').html data.title
         $('#result-text').html  data.text
-        $('#quiz').hide()
+        $('#questions-container').hide()
         $('#result').show()
 
