@@ -4,4 +4,6 @@ T::Application.routes.draw do
 
   post '/solve/:id' => 'quizzes#solve'
 
+  root to: 'quizzes#home'
+
 end

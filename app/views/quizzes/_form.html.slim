@@ -4,10 +4,10 @@
       .row
         .field.col-lg-4
           = f.label :title
-          = f.text_field :title
+          = f.text_field :title, class: "form-control"
         .field.col-lg-4
           = f.label :text
-          = f.text_field :text
+          = f.text_field :text, class: "form-control"
 
       .row 
         .col-lg-12
@@ -18,10 +18,10 @@
         .row
           .field.col-lg-4
             = q.label :title
-            = q.text_field :title
+            = q.text_field :title, class: "form-control"
           .field.col-lg-4
             = q.label :order
-            = q.number_field :order
+            = q.number_field :order, class: "form-control"
           .col-lg-3.col-lg-offset-1
             = q.link_to_remove "Remove this question"
 
@@ -38,11 +38,11 @@
                     .col-lg-4
                       .field
                         = option.label :text
-                        = option.text_field :text
+                        = option.text_field :text, class: "form-control"
                     .col-lg-4
                       .field
                         = option.label :code
-                        = option.number_field :code
+                        = option.number_field :code, class: "form-control"
                     .col-lg-3.col-lg-offset-1
                       = option.link_to_remove "Remove this option"
             = q.link_to_add "Add option", :options
@@ -63,16 +63,16 @@
         .row
           .field.col-lg-4
             = a.label :title
-            = a.text_field:title
+            = a.text_field:title, class: "form-control"
           .field.col-lg-4
             = a.label :code
-            = a.number_field :code
+            = a.number_field :code, class: "form-control"
           .col-lg-3.col-lg-offset-1
             = a.link_to_remove "Remove this answer"
         .row
           .field.col-lg-4
             = a.label :text
-            = a.text_area :text
+            = a.text_area :text, class: "form-control"
         hr
 
 
@@ -80,4 +80,4 @@
       hr
 
       .actions 
-        = f.submit 'Save', class: 'btn btn-default btn-block btn-lg'
+        = f.submit 'Save', class: 'btn btn-primary btn-block btn-lg'

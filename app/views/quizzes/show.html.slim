@@ -1,33 +1,39 @@
-.row
-  #quiz.col-lg-6
-    .row
-      h1= @quiz.title
-    .row
-      p = @quiz.text
+#quiz.container
+  .demo-headline
+    .demo-logo
+      =image_tag 'icons/svg/pencils.svg'
+      = @quiz.title
+      small= @quiz.text
 
-    - @quiz.qs.each do |question|
-      .row
-        h3=question.title
-      .row
-        - question.options.each do |option|
-          .row
-            input.radio-group type="radio" name="#{question.id}" value="#{option.code}" 
-              = option.text
+
+  - @quiz.qs.each do |question|
+    .row
+      .demo-panel-title=question.title
+      - question.options.each do |option|
+        label.radio
+          input type="radio" name="#{question.id}" value="#{option.code}" data-toggle="radio"
+            = option.text
       hr
 
-    .row
-      #show-res.btn.btn-lg.btn-block.btn-info Show result
+  .row
+    a#show-res.btn.btn-lg.btn-info href='javascript:void();'
+      | Show result
 
-  #result.col-lg-6.tile
+
+#result
+  .demo-headline
     .row
       h1 Your result
     .row
       h2#result-title
     .row
-      p#result-text
+      h3#result-text
+  .row
+    =link_to 'Discover more quizzes!', '/', class: 'btn btn-block btn-lg btn-info'
 
 javascript:
-  window.post_url = "/solve/#{@quiz.id}"
+  window.post_url = "/solve/#{@quiz.id}";
+  $(':radio').radio();
 
 coffee:
   $(document).ready () ->

@@ -1,9 +1,14 @@
 class QuizzesController < ApplicationController
   before_action :set_quiz, only: [:show, :edit, :update, :destroy, :solve]
+  before_filter :authorize, only: [:index, :new, :create, :edit, :update, :destroy]
 
   # GET /quizzes
   # GET /quizzes.json
   def index
+    @quizzes = Quiz.all
+  end
+
+  def home
     @quizzes = Quiz.all
   end
 
