@@ -74,11 +74,12 @@ T::Application.configure do
 
 
   config.paperclip_defaults = {
-  :storage => :s3,
-  :s3_credentials => {
-    :bucket => ENV['ermolushka_bucket'],
-    :access_key_id => ENV['AKIAIBUBQSJXCCQDUFKA'],
-    :secret_access_key => ENV['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']
+    :storage => :s3,
+    :s3_credentials => {
+      :bucket => ENV['ermolushka_bucket'],
+      :access_key_id => ENV['AKIAIBUBQSJXCCQDUFKA'],
+      :secret_access_key => ENV['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']
+    }
   }
 
   # Disable automatic flushing of the log to improve performance.
