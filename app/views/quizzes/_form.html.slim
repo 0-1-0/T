@@ -13,8 +13,7 @@
           = f.label :img
           = f.file_field :img, class: "form-control"
         .field.col-lg-4
-          - if @quiz.img.present? && @quiz.img_file_size.present?
-            = image_tag @quiz.img.url
+          = image_tag @quiz.img.url
 
       .row 
         .col-lg-12
@@ -72,9 +71,8 @@
             .field.col-lg-4
               = a.label :img
               = a.file_field :img, class: "form-control"
-            - if answer.img.present? && answer.img_file_size.present?
-              .col-lg-4
-                = image_tag answer.img, width: 100, height: 100
+            .col-lg-4
+              = image_tag answer.img, width: 100, height: 100
             .col-lg-3.pull-right 
               = a.link_to_remove "Remove this answer"
           .row
