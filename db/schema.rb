@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140720235636) do
+ActiveRecord::Schema.define(version: 20140731164246) do
 
   create_table "as", force: true do |t|
     t.integer  "quiz_id"
@@ -20,6 +20,10 @@ ActiveRecord::Schema.define(version: 20140720235636) do
     t.string   "text"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "img_file_name"
+    t.string   "img_content_type"
+    t.integer  "img_file_size"
+    t.datetime "img_updated_at"
   end
 
   add_index "as", ["quiz_id"], name: "index_as_on_quiz_id", using: :btree
@@ -50,6 +54,10 @@ ActiveRecord::Schema.define(version: 20140720235636) do
     t.string   "text"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "img_file_name"
+    t.string   "img_content_type"
+    t.integer  "img_file_size"
+    t.datetime "img_updated_at"
   end
 
 end

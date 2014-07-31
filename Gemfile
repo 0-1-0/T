@@ -43,6 +43,8 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 
 gem 'mobu'
+gem 'paperclip'
+gem 'aws-sdk'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

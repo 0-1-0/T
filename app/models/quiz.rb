@@ -4,6 +4,9 @@ class Quiz < ActiveRecord::Base
   accepts_nested_attributes_for :qs, :allow_destroy => true
   accepts_nested_attributes_for :as, :allow_destroy => true
 
+  has_attached_file :img
+  validates_attachment_content_type :img, :content_type => /\Aimage\/.*\Z/
+
   def find_answer(results)
     freq = results.inject(Hash.new(0)) { |h,v| h[v] += 1; h }
 

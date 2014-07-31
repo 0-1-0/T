@@ -82,9 +82,11 @@ class QuizzesController < ApplicationController
       params.require(:quiz).permit(
         :title, 
         :text, 
+        :img,
 
         as_attributes:[
-          :id, 
+          :id,
+          :img, 
           :code, 
           :title, 
           :text,

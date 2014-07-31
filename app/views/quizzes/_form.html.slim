@@ -8,6 +8,13 @@
         .field.col-lg-4
           = f.label :text
           = f.text_field :text, class: "form-control"
+      .row
+        .field.col-lg-4
+          - if @quiz.img_file_size.present?
+            = image_tag @quiz.img.url
+        .field.col-lg-4
+          = f.label :img
+          = f.file_field :img, class: "form-control"
 
       .row 
         .col-lg-12
@@ -62,17 +69,20 @@
       = f.fields_for :as do |a|
         .row
           .field.col-lg-4
+            = a.label :img
+            = a.file_field :img, class: "form-control"
+          .field.col-lg-4
             = a.label :title
             = a.text_field:title, class: "form-control"
           .field.col-lg-4
             = a.label :code
             = a.number_field :code, class: "form-control"
-          .col-lg-3.col-lg-offset-1
-            = a.link_to_remove "Remove this answer"
         .row
           .field.col-lg-4
             = a.label :text
             = a.text_area :text, class: "form-control"
+          .col-lg-3.col-lg-offset-5 style='margin-top: 50px'
+            = a.link_to_remove "Remove this answer"
         hr
 
 

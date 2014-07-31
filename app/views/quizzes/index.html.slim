@@ -7,6 +7,7 @@
       thead
         tr
           th id
+          th Image
           th Title
           th Text
           th Questions
@@ -18,6 +19,7 @@
         - @quizzes.each do |quiz|
           tr
             td = quiz.id
+            td = image_tag quiz.img.url, height: "100", width: "100"
             td = quiz.title
             td = quiz.text
             td
