@@ -1,1 +1,13 @@
-h1 MOBILE!
+.demo-headline
+  .demo-logo
+    =image_tag 'icons/png/Clipboard.png'
+    | Quizz!
+.row
+  - @quizzes.each do |q|
+    .col-xs-3
+      .tile
+        =image_tag q.img.url, class: 'tile-image big-illustration'
+        h3.tile-title =q.title
+        p=q.text
+        =link_to 'Start quiz!', q, class: 'btn bt-block btn-embosed btn-large btn-default'
+
