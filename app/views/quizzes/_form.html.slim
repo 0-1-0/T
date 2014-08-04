@@ -72,7 +72,8 @@
               = a.label :img
               = a.file_field :img, class: "form-control"
             .col-lg-4
-              = image_tag answer.img, width: 100, height: 100
+              - if answer.img_file_size.present?
+                = image_tag answer.img, width: 100, height: 100
             .col-lg-3.pull-right 
               = a.link_to_remove "Remove this answer"
           .row
