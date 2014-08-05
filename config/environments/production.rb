@@ -75,12 +75,15 @@ T::Application.configure do
 
   config.paperclip_defaults = {
     :storage => :s3,
-    :s3_credentials => {
-      :bucket => ENV['ermolushka_bucket'],
-      :access_key_id => ENV['AKIAIBUBQSJXCCQDUFKA'],
-      :secret_access_key => ENV['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']
+    :url => "s3-us-west-2.amazonaws.com",
+    :s3_host_name => "s3-us-west-2.amazonaws.com",
+    :endpoint => "s3-us-west-2.amazonaws.com",
+    :bucket => 'ermolushka_bucket',
+    :s3_credentials => {      
+      :access_key_id => 'AKIAIBUBQSJXCCQDUFKA',
+      :secret_access_key => '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'
     }
-  }
+  } 
 
   # Disable automatic flushing of the log to improve performance.
   # config.autoflush_log = false
