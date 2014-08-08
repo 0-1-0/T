@@ -75,7 +75,6 @@ T::Application.configure do
 
   config.paperclip_defaults = {
     :storage => :s3,
-    :s3_host_name => 'quizzesasdasd.s3-website-eu-west-1.amazonaws.com',
     :s3_credentials => {    
       :bucket => 'quizzesasdasd',  
       :access_key_id => 'AKIAIBUBQSJXCCQDUFKA',
